@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -47,5 +47,6 @@ require __DIR__.'/admin-auth.php';
 
 
 // Posts.
-Route::get('/posts', [PostsController::class, 'index'])->name('posts.index');
+Route::get('/', [PostsController::class, 'index'])->name('posts.index');
+Route::get('/posts/{slug}', [PostsController::class, 'show'])->name('posts.show');
 
